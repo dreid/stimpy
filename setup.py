@@ -5,5 +5,5 @@ setup(
     version="0.0.1",
     description="STatebox In My PYthon",
     py_modules=["stimpy"],
-    install_requires=["Twisted", "mock", "simplejson"]
+    install_requires=["Twisted"]
 )

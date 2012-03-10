@@ -1,7 +1,17 @@
 language: python
+
 python:
     - 2.6
     - 2.7
 
-install: python setup.py install
-script: trial test_stimpy
+env:
+    - JSON=simplejson
+    - JSON=json
+install:
+    -
+    - python setup.py install
+    - pip install mock --use-mirrors
+    - bash -c "test $JSON = simplejson && pip install simplejson"
+
+script:
+    - trial test_stimpy
