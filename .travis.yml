@@ -7,11 +7,11 @@ python:
 env:
     - JSON=simplejson
     - JSON=json
+
 install:
-    -
     - python setup.py install
-    - pip install mock --use-mirrors
-    - bash -c "test $JSON = simplejson && pip install simplejson"
+    - pip install -r requirements-test.txt --use-mirrors
+    - pip install -r requirements-$JSON.txt --use-mirrors
 
 script:
     - trial test_stimpy
