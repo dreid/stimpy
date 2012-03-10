@@ -68,6 +68,7 @@ class Statebox(object):
 
         for (t, op, args, kwargs) in sorted(new_queue):
             op(self._value, *args, **kwargs)
+            self._last_modified = t
 
         self._queue = new_queue
 

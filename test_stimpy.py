@@ -42,7 +42,7 @@ class StateboxTestCase(unittest.TestCase):
 
         sb1.modify(set.add, "foo")
         sb2.modify(set.add, "bar")
-        sb1.modify(set.add, "baz")
+        sb2.modify(set.add, "baz")
 
         sb1.merge(sb2)
 
@@ -53,6 +53,7 @@ class StateboxTestCase(unittest.TestCase):
              (4, set.add, ("baz",), {})
             ])
 
+        self.assertEquals(sb1.last_modified, 4)
 
     def test_serializeOps(self):
         sb = Statebox(set(), _clock=mockClock())
